@@ -1,12 +1,95 @@
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source "../**/*.blade.php";
-@source "../**/*.js";
-@source "../**/*.vue";
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/* Login/signup landing Start */
+.login_signup_bg {
+    background-color: #b8d3ff;
 }
+
+.login_signup_h1 {
+    text-align: center;
+    font-size: 39px;
+    margin-top: 80px;
+    margin-bottom: 200px;
+}
+
+.login_signup_buttons {
+    /* border-width: 1px;
+    border-color: black; */
+    background-color: white;
+    padding: 10px;
+    margin-block: 15px;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 12px;
+    font-size: 31px;
+}
+
+
+.nunito1 {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300px;
+    font-style: normal;
+  }
+  /* Login/signup landing Start */
+
+/* Signup page start */
+
+.inputFields1 {
+    /* border-width: 1px;
+    border-color: black; */
+    background-color: white;
+    padding: 10px;
+    width: 300px;
+    height: 50px;
+    line-height: 30px;
+    border-radius: 12px;
+    font-size: 16px;
+
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300px;
+    font-style: normal;
+
+    /* @layer base {
+        input::placeholder,
+        textarea::placeholder {
+          color: var(--color-gray-400);
+        }
+      } */
+}
+
+.inputFields1_text {
+    font-size: 20px;
+}
+
+/* .guestFile {
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+} */
+
+.signup_h1 {
+    text-align: center;
+    font-size: 39px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+}
+
+.registerButtons{
+    padding: 10px;
+    margin-block: 15px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+/* Signup page end */
