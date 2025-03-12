@@ -1,7 +1,7 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
-
+        
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
@@ -37,16 +37,13 @@
                             name="password_confirmation" required autocomplete="new-password" />
 
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+            <div class="flex items-center mt-4 addGap_register">
 
-        <div class="flex items-center justify-end mt-4 addGap_register">
-            <a class="registerButtons" href="http://127.0.0.1:8000/">
-                Go Back
-            </a>
+                <a class="signupButtons" href="http://127.0.0.1:8000/"> Go Back</a>
 
-            <x-primary-button class="registerButtons">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
+                <x-primary-button>
+                    {{ __('Register') }}
+                </x-primary-button>
+            </div>
     </form>
 </x-guest-layout>

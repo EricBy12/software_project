@@ -38,9 +38,9 @@
   }
   /* Login/signup landing Start */
 
-/* Signup page start */
+/* Signup and Login pages start */
 
-.inputFields1 {
+.inputFields1 { /* this is used on the text-input.blade.php global componenet */
     border-width: 0px;
     background-color: white;
     padding: 10px;
@@ -80,8 +80,8 @@
     margin-bottom: 20px;
 }
 
-.registerButtons{
-    padding: 10px;
+.signupButtons{ /* this is used on the primary-button.blade.php and cancel-button.blade.php global componenets */
+    /* padding: 10px; */
     width: 140px;
     margin-block: 15px;
     height: 50px;
@@ -90,6 +90,9 @@
     font-size: 20px;
     color: black;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
@@ -101,4 +104,26 @@
     gap: 20px;
 }
 
-/* Signup page end */
+.forgotPass {
+    background-color: white;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 500px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 12px;
+    font-size: 16px;
+    color: gray;
+}
+
+.login_signup_h1_2 {
+    text-align: center;
+    font-size: 39px;
+    margin-bottom: 10px; /* Try reducing this */
+    padding: 0;
+}
+
+
+/* Signup and login pages end */

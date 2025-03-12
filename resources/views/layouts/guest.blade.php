@@ -16,7 +16,7 @@
     </head>
     <body class="login_signup_bg">
         <div class="signup_h1">
-            <h1>Sign up to Finders Cleaners</h1>
+            <h1>Sign up to Finders Cleaners</h1>  <!-- Need to find a way to change this text for login and forgot ppassword -->
         </div>
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
 
