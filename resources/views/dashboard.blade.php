@@ -16,7 +16,12 @@
         <h2 class="dash_h2">Joined Groups</h2>
         <div class="dash_thingy nunito1">
             <p>You have not joined any groups.</p>
+            <!-- <a href="route('groups.index')">
             <h2 class="dash_h2 joinGroupButton nunito1"> Join a Group</h2>
+            </a> -->
+            <x-nav-link :href="route('groups.index')" :active="request()->routeIs('groups.index')">
+            <h2 class="dash_h2 joinGroupButton nunito1 decoration-black"> Join a Group</h2>
+            </x-nav-link>
             <div>
             
         </div>
