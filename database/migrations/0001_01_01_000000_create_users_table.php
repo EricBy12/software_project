@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('first_name')->default('John');
             $table->string('last_name')->default('Doe');
             $table->string('email')->unique();
+            $table->string('profile_image')->default('public/images/PFP_Default.png');
             $table->string('role')->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

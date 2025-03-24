@@ -14,7 +14,7 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         Setting::insert([
-            ['user_id' => 1,"hideRealName" => "HRN1", "privateStats" => "PS1", "appearOnLeaderboard" => "AOL1"],
+            ['user_id' => 1,"hideRealName" => false, "privateStats" => false, "appearOnLeaderboard" => false],
             //["hideRealName" => "HRN2", "privateStats" => "PS2", "appearOnLeaderboard" => "AOL2"],
         ]);
     }

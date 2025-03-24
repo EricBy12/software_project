@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             'first_name' => 'John',
             'last_name' => 'GroupLeader',
             'email' => 'groupL@gmail.com',
+            'profile_image' => 'public/images/PFP_Jhon.png',
             'role' => 'Organizer',
             'password' => "123456789"
         ]);
