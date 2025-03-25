@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('profile_image')->default('public/images/PFP_Default.png');
             $table->string('role')->default('user');
+            $table->boolean("hideRealName")->default(false);
+            $table->boolean("privateStats")->default(false);
+            $table->boolean("appearOnLeaderboard")->default(false);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

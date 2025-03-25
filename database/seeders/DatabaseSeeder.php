@@ -34,8 +34,10 @@ class DatabaseSeeder extends Seeder
         ]);
         $this->call(GroupSeeder::class);
         $this->call(EventSeeder::class);
-        $this->call(SettingSeeder::class);
-        $this->call(GroupsettingSeeder::class);
+
+        // These are unused now
+        // $this->call(SettingSeeder::class);
+        // $this->call(GroupsettingSeeder::class);
 
         User::factory()->create([
             'name' => 'Test User',

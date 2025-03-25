@@ -13,10 +13,14 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->string("title");
-            $table->string("description");
+            $table->string("title")->default("(NOT_FOUND)");
+            $table->string("description")->default("");
+            $table->string("location")->default("(NOT_FOUND)");
             $table->foreignId("user_id");
             $table->integer("members");
+            $table->string("groupAdmissions")->default("Open");
+            $table->boolean("privateStats")->default(false);
+            $table->boolean("appearOnLeaderboard")->default(true);
             $table->timestamps();
         });
     }

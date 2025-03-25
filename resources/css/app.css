@@ -7,6 +7,11 @@
 .login_signup_bg {
     background-color: #b8d3ff;
 }
+body{
+    background-color: #b8d3ff;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 
 .login_signup_h1 {
     text-align: center;
@@ -222,3 +227,51 @@
     line-height: 25px;
     border-radius: 10px;
 }
+
+/* Groups index start */
+.heading {
+    background-color: white;
+    border: 100%;
+    padding: 10px;
+    font-weight: 700;
+    overscroll-behavior: contain;
+}
+
+.GroupsHeadingTXT {
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.groupCard{
+    background-color: white;
+    border: 10px;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.joinGROUPButton {
+    background-color: rgb(96, 255, 136);
+    padding: 10px;
+    border-radius: 10px;
+    /* Find a better way to do this rather than line height */
+}
+.leaveGROUPButton {
+    background-color: rgb(255, 96, 96);
+    padding: 10px;
+    border-radius: 10px;
+    /* Find a better way to do this rather than line height */
+}
+
+.GCFlex {
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.GCTitle {
+    font-size: 16;
+    margin-bottom: 10px;
+}
+/* Groups index end */
