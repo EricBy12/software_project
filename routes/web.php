@@ -2,15 +2,20 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
+
+use App\Models\Event;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+        $events = Event::all();
+        return view('dashboard', compact('events'));
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -24,6 +29,14 @@ Route::middleware('auth')->group(function () {
     Route::put('/groups/{groups}/update', [GroupController::class, 'update'])->name('groups.update'); //Updates a record in the database
     Route::post('/groups', [GroupController::class, 'store'])->name('groups.store'); //Adds a record to the database
     Route::delete('/groups/{groups}', [GroupController::class, 'destroy'])->name('groups.destroy'); //Delets a record from the database
+
+    Route::get('/events', [EventController::class, 'index'])->name('events.index'); //Uses the index method from the EventController to display a list of all of the records
+    Route::get('/events/create', [EventController::class, 'create'])->name('events.create'); //Dispalys the create form
+    Route::get('/events/{events}', [EventController::class, 'show'])->name('events.show'); //Displays an indevidual record
+    Route::get('/events/{events}/edit', [EventController::class, 'edit'])->name('events.edit'); //Displays the edit form
+    Route::put('/events/{events}/update', [EventController::class, 'update'])->name('events.update'); //Updates a record in the database
+    Route::post('/events', [EventController::class, 'store'])->name('events.store'); //Adds a record to the database
+    Route::delete('/events/{events}', [EventController::class, 'destroy'])->name('events.destroy'); //Delets a record from the database
 });
 
 require __DIR__.'/auth.php';

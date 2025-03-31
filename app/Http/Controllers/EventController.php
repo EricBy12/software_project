@@ -8,12 +8,23 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+
+    public function dashboard() {
+        // $user = Auth::user();
+        // $events = Event::all(); // Or filter events related to the user
+        // return view('dashboard', compact('events'));
+        
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        {
+            $events = Event::all();
+            return view('events.index', compact('events'));
+        }
     }
 
     /**
@@ -21,7 +32,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        return view('events_create');
     }
 
     /**
@@ -34,7 +45,7 @@ class EventController extends Controller
 
     /**
      * Display the specified resource.
-     */
+     */ 
     public function show(Event $event)
     {
         //

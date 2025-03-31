@@ -202,6 +202,17 @@ body{
     justify-self: center;
 }
 
+.colaButton {
+    background-color: rgb(157, 255, 183);
+    padding: 5px;
+    width: 250px;
+    height: 40px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 12px;
+    justify-self: center;
+}
+
 .loacalActivityBody {
     background-color: #D4D4D4;
     padding: 5px;

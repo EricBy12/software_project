@@ -20,4 +20,9 @@
     </div>
     <p><strong>Description:</strong> {{$description}}</p>
 </div>
-
+<!-- 
+<div class="indexGroup flex">
+<h4 class="GCTitle">{{$title}}</h4>
+<p class="">Located:{{$location}}</p>
+</div>
+ -->

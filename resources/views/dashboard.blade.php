@@ -15,10 +15,9 @@
     <div class="">
         <h2 class="dash_h2">Joined Groups</h2>
         <div class="dash_thingy nunito1">
+            <!-- find out how to make different groups card for this -->
             <p>You have not joined any groups.</p>
-            <!-- <a href="route('groups.index')">
-            <h2 class="dash_h2 joinGroupButton nunito1"> Join a Group</h2>
-            </a> -->
+            
             <x-nav-link :href="route('groups.index')" :active="request()->routeIs('groups.index')">
             <h2 class="dash_h2 joinGroupButton nunito1 decoration-black"> Join a Group</h2>
             </x-nav-link>
@@ -28,13 +27,21 @@
     </div>
 
 
+    <h2 class="dash_h2">Check out local activity</h2>
     <div class="dash_thingy nunito1">
-        <div class="loacalActivityBody nunito1">
-            <div class="localActivityTag LATOrange">Beach Clean</div>
-            <div class="localActivityLocation">Somewhere</div>
-            <div class="localActivityTime">10:20</div>
-        </div>
-        <div class="loacalActivityBody">
+        <!-- <x-nav-link :href="route('events.index')" :active="request()->routeIs('groups.index')">
+        <h2 class="dash_h2 colaButton nunito1 decoration-black">Check out local activity</h2>
+        </x-nav-link> -->
+
+    @foreach($events as $event)
+        <x-event-card class="eventCard"
+        :tag="$event->tag"
+        :location="$event->location"
+        :time="$event->time"
+        ></x-event-card>
+    @endforeach
+
+        <!-- <div class="loacalActivityBody">
             <div class="localActivityTag LATGreen">Litter Picking</div>
             <div class="localActivityLocation">Somewhere</div>
             <div class="localActivityTime">10:20</div>
@@ -83,8 +90,8 @@
             <div class="localActivityTag LATGreen">Litter Picking</div>
             <div class="localActivityLocation">Somewhere</div>
             <div class="localActivityTime">10:20</div>
-        </div>
-    </div>
+        </div>-->
+    </div> 
     </body>
 
 

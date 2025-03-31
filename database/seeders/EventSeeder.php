@@ -19,6 +19,11 @@ class EventSeeder extends Seeder
             ['group_id' => 2,"title" => "EVENT_TITLE3", "tag" => "Beach Clean", "description" => "EVENT_DESC3","location" => "EVENT_LOCATION3", "attendance_restriction" => "AATRES3", "attendees" => 5],
             ['group_id' => 2,"title" => "EVENT_TITLE4", "tag" => "Beach Clean", "description" => "EVENT_DESC4","location" => "EVENT_LOCATION4", "attendance_restriction" => "AATRES4", "attendees" => 5],
             ['group_id' => 2,"title" => "EVENT_TITLE5", "tag" => "Beach Clean", "description" => "EVENT_DESC5","location" => "EVENT_LOCATION5", "attendance_restriction" => "AATRES5", "attendees" => 5],
+            ['group_id' => 2,"title" => "EVENT_TITLE5", "tag" => "Beach Clean", "description" => "EVENT_DESC5","location" => "EVENT_LOCATION5", "attendance_restriction" => "AATRES5", "attendees" => 5],
+            ['group_id' => 2,"title" => "EVENT_TITLE5", "tag" => "Beach Clean", "description" => "EVENT_DESC5","location" => "EVENT_LOCATION5", "attendance_restriction" => "AATRES5", "attendees" => 5],
+            ['group_id' => 2,"title" => "EVENT_TITLE5", "tag" => "Beach Clean", "description" => "EVENT_DESC5","location" => "EVENT_LOCATION5", "attendance_restriction" => "AATRES5", "attendees" => 5],
+            ['group_id' => 2,"title" => "EVENT_TITLE5", "tag" => "Beach Clean", "description" => "EVENT_DESC5","location" => "EVENT_LOCATION5", "attendance_restriction" => "AATRES5", "attendees" => 5],
+            ['group_id' => 2,"title" => "EVENT_TITLE5", "tag" => "Beach Clean", "description" => "EVENT_DESC5","location" => "EVENT_LOCATION5", "attendance_restriction" => "AATRES5", "attendees" => 5],
         ]);
     }
 }
