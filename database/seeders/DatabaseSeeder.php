@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'groupL@gmail.com',
             'profile_image' => 'public/images/PFP_Jhon.png',
             'role' => 'Organizer',
+            'joinedGroups' => 2,
             'password' => "123456789"
         ]);
         $this->call(GroupSeeder::class);

@@ -45,6 +45,7 @@
                             Log in
                         </a>
 
+                        <!-- if a user has previously logged in then this button will relog them in for some reason -->
                         @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"
