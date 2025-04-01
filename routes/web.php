@@ -22,6 +22,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::get('/mygroups', [GroupController::class, 'my_index'])->name('mygroups.index'); //Shows the organisers groups
+
     Route::get('/groups', [GroupController::class, 'index'])->name('groups.index'); //Uses the index method from the GroupController to display a list of all of the records
     Route::get('/groups/create', [GroupController::class, 'create'])->name('groups.create'); //Dispalys the create form
     Route::get('/groups/{groups}', [GroupController::class, 'show'])->name('groups.show'); //Displays an indevidual record

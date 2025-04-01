@@ -33,6 +33,18 @@ class DatabaseSeeder extends Seeder
             'joinedGroups' => 2,
             'password' => "123456789"
         ]);
+
+        User::factory()->create([
+            'name' => 'Joe_Shmo22',
+            'first_name' => 'Joe',
+            'last_name' => 'GroupLeader',
+            'email' => 'OgroupL@gmail.com',
+            'profile_image' => 'public/images/PFP_Joe.png',
+            'role' => 'Organizer',
+            'joinedGroups' => 19,
+            'password' => "123456789"
+        ]);
+
         $this->call(GroupSeeder::class);
         $this->call(EventSeeder::class);
 

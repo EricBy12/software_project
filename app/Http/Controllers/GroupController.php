@@ -19,6 +19,14 @@ class GroupController extends Controller
         }
     }
 
+    public function my_index()
+    {
+        {
+            $groups = Group::all();
+            return view('mygroups.index', compact('groups'));
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      */

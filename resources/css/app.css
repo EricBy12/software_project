@@ -227,8 +227,9 @@ body{
 }
 .manageGroupButton {
     background-color: rgb(157, 255, 183);
+    /* background-color: rgb(108, 213, 255); ALT COLOR */
     padding: 5px;
-    width: 300px;
+    width: 310px;
     height: 40px;
     text-align: center;
     line-height: 30px;
@@ -292,7 +293,7 @@ body{
     border-radius: 10px;
 }
 
-/* Groups index start */
+/* Groups and myGroups index start */
 .heading {
     background-color: white;
     border: 100%;
@@ -316,7 +317,7 @@ body{
 }
 
 .joinGROUPButton {
-    background-color: rgb(96, 255, 136);
+    background-color: rgb(146, 255, 173);
     padding: 10px;
     border-radius: 10px;
     /* Find a better way to do this rather than line height */
@@ -325,6 +326,25 @@ body{
     background-color: rgb(255, 96, 96);
     padding: 10px;
     border-radius: 10px;
+    /* Find a better way to do this rather than line height */
+}
+.manageGROUPButton {
+    background-color: rgb(146, 255, 173);
+    padding: 10px;
+    border-radius: 10px;
+    /* Find a better way to do this rather than line height */
+}
+.createGROUPButton {
+    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(108, 213, 255); ALT COLOR */
+    padding: 5px;
+    width: 350px;
+    height: 40px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 12px;
+    justify-self: center;
+    margin-top: 20px;
     /* Find a better way to do this rather than line height */
 }
 

@@ -40,8 +40,8 @@
                     
                 </div>
                 <!-- ORGANISERS ONLY -->
-                @if(Auth::user()->role === "organizer")
-                <x-nav-link :href="route('groups.index')" :active="request()->routeIs('groups.index')"> 
+                @if(Auth::user()->role === "Organizer")
+                <x-nav-link :href="route('mygroups.index')" :active="request()->routeIs('mygroups.index')"> 
                     <h2 class="dash_h2 manageGroupButton nunito1 decoration-black">Manage My Groups</h2>
                     </x-nav-link>
                 @endif
