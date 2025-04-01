@@ -10,6 +10,6 @@ class Event extends Model
 {
     //
     use HasFactory;
-    protected $fillable = ['tag', 'loaction', 'time']; // Ensure this matches your database columns
+    protected $fillable = ['title', 'description', 'tag', 'location', 'time', 'attendance_restriction', 'attendees']; // Ensure this matches your database columns
 
 }

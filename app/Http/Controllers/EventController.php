@@ -48,8 +48,9 @@ class EventController extends Controller
      */ 
     public function show(Event $event)
     {
-        //
+        return view('events.show', compact('event'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.

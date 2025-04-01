@@ -27,6 +27,7 @@
     <body class="login_signup_bg">
         <div>
             <h1 class="login_signup_h1 nunito1">Welcome to Finders Cleaners</h1>
+            <h2 class="welcome">The app that helps you meet other like minded individuals interested in sustainability and maintaining our local areas.</h2>
         </div>
         @if (Route::has('login'))
                 <nav class="flex items-center flex-col">

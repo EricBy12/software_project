@@ -5,6 +5,7 @@
 
     <div class='heading'>
         <h2 class='GroupsHeadingTXT nunito1'>Join a Local Group</h2>
+        <p class="ml-5 mt-3 mb-2">Join local groups in your area to meet new people near you and collaborate on keeping your community neat and tidy.</p>
     </div>
     <div class="">
     @foreach($groups as $group)

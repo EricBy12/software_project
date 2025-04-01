@@ -13,11 +13,18 @@ body{
     overflow-x: hidden;
 }
 
+.welcome{
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
 .login_signup_h1 {
     text-align: center;
     font-size: 39px;
     margin-top: 80px;
-    margin-bottom: 200px;
+    margin-bottom: 50px;
 }
 
 .login_signup_buttons {
@@ -307,6 +314,13 @@ body{
     margin-left: 20px;
 }
 
+.group_h1 {
+    text-align: center;
+    font-size: 39px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
 .groupCard{
     background-color: white;
     border: 10px;
@@ -359,3 +373,49 @@ body{
     margin-bottom: 10px;
 }
 /* Groups index end */
+
+/* Event show */
+.eventSTitle{
+    font-size: 25px;
+    margin-left: 20px;
+    background-color: white;
+    border: 10px;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.eventSDESC {
+    background-color: white;
+    border: 10px;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.eventSTag {
+    background-color: rgb(146, 255, 173);
+    font-size: 20;
+    padding: 5px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.attendButton {
+    background-color: rgb(146, 255, 173);
+    font-size: 20;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+.attendButtonDenied {
+    background-color: rgb(255, 204, 204);
+    color: rgb(102, 102, 102);
+    font-size: 20;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+}

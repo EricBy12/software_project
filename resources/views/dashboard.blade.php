@@ -58,11 +58,13 @@
         </x-nav-link> -->
 
     @foreach($events as $event)
-        <x-event-card class="eventCard"
-        :tag="$event->tag"
-        :location="$event->location"
-        :time="$event->time"
-        ></x-event-card>
+        <a href="{{ route('events.show', $event->id) }}">
+            <x-event-card class="eventCard"
+            :tag="$event->tag"
+            :location="$event->location"
+            :time="$event->time"
+            ></x-event-card>
+        </a>
     @endforeach
 
         <!-- <div class="loacalActivityBody">
