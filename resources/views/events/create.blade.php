@@ -1,3 +1,9 @@
-<div>
-    <!-- Simplicity is the essence of happiness. - Cedric Bledsoe -->
-</div>
+<x-app-layout>
+    <div>
+        <h3>Organise an Event</h3>
+        <x-event-form 
+            :action="route('events.store')" 
+            :method="'POST'" 
+        />
+    </div>
+</x-app-layout>

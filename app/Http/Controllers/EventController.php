@@ -32,7 +32,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events_create');
+        return view('events.create');
     }
 
     /**
@@ -40,7 +40,33 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'tag' => 'required',
+            'description' => 'required|max:1000',
+            'location' => 'required|max:500',
+            'attendance_restriction' => 'required',
+        ]);
+
+        //Checks if the image has been uploaded and handles it
+        if ($request->hasFile('image')) {
+            $imageName = time(). '.' .$request->image->extension();
+            $request->image->move(public_path('images/restaurants'), $imageName);
+        }
+
+        //Create a restaurant record in the database
+        Restaurants::create([
+            'name' => $request->name,
+            'tag' => $request->tag,
+            'description' => $request->description,
+            'location' => $request->location,
+            'attendance_restriction' => $request->attendance_restriction,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        //Redirect to the index page with a success message
+        return to_route('dashboard')->with('success', 'Event created successfully!');
     }
 
     /**

@@ -3,10 +3,16 @@
 
 <div class="nunito1">
     <div class="eventSTitle">
-        <div class="eventSTag">
+    @if($tag === "Beach Clean") 
+        <div class="eventSTagBC">
             <h2><strong>{{$tag}}</strong></h2>
         </div>
-        
+    @elseif($tag === "Litter Pick")
+        <div class="eventSTagLP">
+            <h2><strong>{{$tag}}</strong></h2>
+        </div>    
+    @endif
+
         <h1>{{$title}}</h1>
     </div>
     

@@ -393,8 +393,16 @@ body{
     border-radius: 10px;
 }
 
-.eventSTag {
+.eventSTagLP {
     background-color: rgb(146, 255, 173);
+    font-size: 20;
+    padding: 5px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.eventSTagBC {
+    background-color: rgb(255, 219, 135);
     font-size: 20;
     padding: 5px;
     border-radius: 15px;

@@ -51,6 +51,10 @@
     </div>
 
 
+     <!-- Component for displaying success message -->
+     <x-alert-success>
+        {{session('success')}}
+    </x-alert-success>
     <h2 class="dash_h2">Check out local activity</h2>
     <div class="dash_thingy nunito1">
         <!-- <x-nav-link :href="route('events.index')" :active="request()->routeIs('groups.index')">
