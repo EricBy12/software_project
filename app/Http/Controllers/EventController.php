@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Controllers\Log;
 use App\Models\Event;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -21,11 +21,11 @@ class EventController extends Controller
      */
     public function index()
     {
-        {
-            $events = Event::all();
-            return view('events.index', compact('events'));
-        }
+        $events = Event::all();
+        return view('events.index', compact('events'));
     }
+    
+    
 
     /**
      * Show the form for creating a new resource.
@@ -40,6 +40,8 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        
+        //dd($request->all());
         $request->validate([
             'name' => 'required',
             'tag' => 'required',
@@ -48,25 +50,22 @@ class EventController extends Controller
             'attendance_restriction' => 'required',
         ]);
 
-        //Checks if the image has been uploaded and handles it
-        if ($request->hasFile('image')) {
-            $imageName = time(). '.' .$request->image->extension();
-            $request->image->move(public_path('images/restaurants'), $imageName);
-        }
-
-        //Create a restaurant record in the database
-        Restaurants::create([
+        //Create a record in the database
+        Event::create([
             'name' => $request->name,
             'tag' => $request->tag,
             'description' => $request->description,
             'location' => $request->location,
             'attendance_restriction' => $request->attendance_restriction,
+            'attendees' => 0,
             'created_at' => now(),
             'updated_at' => now()
         ]);
 
         //Redirect to the index page with a success message
-        return to_route('dashboard')->with('success', 'Event created successfully!');
+        return to_route('events.index')->with('success', 'Event created successfully!');
+
+        
     }
 
     /**
@@ -81,9 +80,11 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Event $event)
+    public function edit(Event $events, Request $request)
     {
-        //
+
+        return view('events.edit', compact('events'));
+        
     }
 
     /**
@@ -91,14 +92,41 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+    //dd($request->all());
+    $request->validate([
+        'name' => 'required',
+        'tag' => 'required',
+        'description' => 'required|max:1000',
+        'location' => 'required|max:500',
+        'attendance_restriction' => 'required',
+    ]);
+
+    //Create a record in the database
+    Event::update([
+        'name' => $request->name,
+        'tag' => $request->tag,
+        'description' => $request->description,
+        'location' => $request->location,
+        'attendance_restriction' => $request->attendance_restriction,
+        'attendees' => 0,
+        'created_at' => now(),
+        'updated_at' => now()
+    ]);
+
+    //Redirect to the index page with a success message
+    return to_route('events.index')->with('success', 'Event Updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Event $event)
-    {
-        //
-    }
+    public function destroy(Request $request, Event $event)
+{
+
+    // Deletes a restaurant from the database
+    $event->delete();
+
+    // Redirect back to the index page with a success message
+    return to_route('events.index')->with('success', 'Event deleted successfully!');
+}
 }

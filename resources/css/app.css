@@ -206,8 +206,6 @@ body{
 
 .dash_groupButtons{
     display: flex;
-    align-items: center;
-    align-self: center;
     justify-content: center;
     gap: 10px;
 }
@@ -215,7 +213,7 @@ body{
 .joinGroupButton {
     background-color: rgb(157, 255, 183);
     padding: 5px;
-    width: 150px;
+    width: 160px;
     height: 40px;
     text-align: center;
     line-height: 30px;
@@ -225,7 +223,7 @@ body{
 .joinedGroupsButton {
     background-color: rgb(235, 235, 235);
     padding: 5px;
-    width: 150px;
+    width: 160px;
     height: 40px;
     text-align: center;
     line-height: 30px;
@@ -376,13 +374,17 @@ body{
 
 /* Event show */
 .eventSTitle{
-    font-size: 25px;
+    /* font-size: 25px; */
     margin-left: 20px;
     background-color: white;
     border: 10px;
     padding: 10px;
     margin: 20px;
     border-radius: 10px;
+}
+
+.eventTitleH1 {
+    font-size: 25px;
 }
 
 .eventSDESC {
@@ -425,5 +427,37 @@ body{
     padding: 5px;
     border-radius: 10px;
     text-align: center;
+    margin-top: 20px;
+}
+.EditE {
+    background-color: rgb(114, 255, 124);
+    padding: 5px;
+    width: 160px;
+    height: 40px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 12px;
+    justify-self: center;
+}
+.DELETEE {
+    background-color: rgb(255, 81, 81);
+    padding: 5px;
+    width: 160px;
+    height: 40px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 12px;
+    justify-self: center;
+}
+
+.alertSuccess {
+    background-color: rgb(146, 255, 173);
+    padding: 5px;
+    width: 350px;
+    height: 40px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 12px;
+    justify-self: center;
     margin-top: 20px;
 }

@@ -1,3 +1,10 @@
-<div>
-    <!-- Knowing is not enough; we must apply. Being willing is not enough; we must do. - Leonardo da Vinci -->
-</div>
+<x-app-layout>
+    <div>
+        <h3>Edit an Event</h3>
+        <x-event-form 
+            :action="route('events.update', $events)" 
+            :method="'PUT'" 
+            :events="$events"
+        />
+    </div>
+</x-app-layout>

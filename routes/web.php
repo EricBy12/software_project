@@ -35,8 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/events', [EventController::class, 'index'])->name('events.index'); //Uses the index method from the EventController to display a list of all of the records
     Route::get('/events/create', [EventController::class, 'create'])->name('events.create'); //Dispalys the create form
     Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show'); //Displays an indevidual record
-    Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit'); //Displays the edit form
-    Route::put('/events/{event}/update', [EventController::class, 'update'])->name('events.update'); //Updates a record in the database
+    Route::get('/events/{events}/edit', [EventController::class, 'edit'])->name('events.edit'); //Displays the edit form
+    Route::put('/events/{events}/update', [EventController::class, 'update'])->name('events.update'); //Updates a record in the database
     Route::post('/events', [EventController::class, 'store'])->name('events.store'); //Adds a record to the database
     Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy'); //Delets a record from the database
 });

@@ -15,7 +15,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen login_signup_bg">
+        <div class="">
             @include('layouts.navigation')
 
             <!-- Page Heading -->

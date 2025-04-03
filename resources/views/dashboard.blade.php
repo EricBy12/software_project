@@ -51,16 +51,19 @@
     </div>
 
 
-     <!-- Component for displaying success message -->
-     <x-alert-success>
-        {{session('success')}}
-    </x-alert-success>
+     
     <h2 class="dash_h2">Check out local activity</h2>
+    <!-- ORGANISERS ONLY -->
+    
     <div class="dash_thingy nunito1">
         <!-- <x-nav-link :href="route('events.index')" :active="request()->routeIs('groups.index')">
         <h2 class="dash_h2 colaButton nunito1 decoration-black">Check out local activity</h2>
         </x-nav-link> -->
-
+        @if(Auth::user()->role === "Organizer")
+            <x-nav-link :href="route('events.index')" :active="request()->routeIs('events.index')"> 
+                <h2 class="dash_h2 manageGroupButton nunito1 decoration-black">Manage My Events</h2>
+            </x-nav-link>
+        @endif
     @foreach($events as $event)
         <a href="{{ route('events.show', $event->id) }}">
             <x-event-card class="eventCard"

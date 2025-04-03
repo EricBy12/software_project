@@ -1,14 +1,14 @@
 @props(['action','method'])
 
-<form action="{{ $action }}" method="POST" enctype="multipart/form-data">
+<form action="{{ $action }}" method="POST" class="">
     @csrf
     @if($method === 'PUT' || $method === 'PATCH')
         @method($method)
     @endif
 
-    <div>
-        <label for="title">Title</label>
-        <input type="text"
+    <div class="mb-4">
+        <label for="title">Title of Event</label>
+        <input class="inputFields1" type="text"
         name="title"
         id="title"
         value="{{old('title',$event->title ?? '')}}"
@@ -19,8 +19,8 @@
     </div>
 
     <div class="mb-4">
-        <label for="tag">Tag</label>
-        <input type="text"
+        <label for="tag">Event Type Tag</label>
+        <input class="inputFields1" type="text"
         name="tag"
         id="tag"
         value="{{old('tag',$event->tag ?? '')}}"
@@ -32,7 +32,7 @@
 
     <div class="mb-4">
         <label for="description">Event Description</label>
-        <input type="text"
+        <input class="inputFields1" type="text"
         name="description"
         id="description"
         value="{{old('description',$event->description ?? '')}}"
@@ -44,7 +44,7 @@
 
     <div class="mb-4">
         <label for="location">Event Location</label>
-        <input type="text"
+        <input class="inputFields1" type="text"
         name="location"
         id="location"
         value="{{old('location',$event->location ?? '')}}"
@@ -56,7 +56,7 @@
 
     <div class="mb-4">
         <label for="time">Event Start Times</label>
-        <input type="text"
+        <input class="inputFields1" type="text"
         name="time"
         id="time"
         value="{{old('time',$event->time ?? '')}}"
@@ -67,13 +67,13 @@
     </div>
 
     <div class="mb-4">
-        <label for="AR">Attendance Restrictions</label>
-        <input type="text"
-        name="AR"
-        id="AR"
-        value="{{old('AR',$event->AR ?? '')}}"
+        <label for="attendance_restriction">Attendance Restrictions</label>
+        <input class="inputFields1" type="text"
+        name="attendance_restriction"
+        id="attendance_restriction"
+        value="{{old('attendance_restriction',$event->attendance_restriction ?? '')}}"
         required>
-        @error('AR')
+        @error('attendance_restriction')
         <p class="text-sm text-red-600">{{$message}}</p>
         @enderror
     </div>
