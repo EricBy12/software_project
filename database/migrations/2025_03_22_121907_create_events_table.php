@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string("description")->default("DATA_NOT_FOUND");
             $table->string("location")->default("DATA_NOT_FOUND");
             $table->string("time")->default('08:00')->default("DATA_NOT_FOUND");
-            $table->foreignId("group_id")->default(1);;
+            $table->foreignId("group_id")->default(1);
+            $table->foreignId("organiser_id")->default(1);
             $table->string("attendance_restriction")->default("DATA_NOT_FOUND");
-            $table->integer("attendees")->default(0);;
+            $table->integer("attendees")->default(0);
             $table->timestamps();
         });
     }

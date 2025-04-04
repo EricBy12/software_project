@@ -10,6 +10,8 @@
     <div class="dash_h1 joinGroupButtonCenter">
         <h1>Welcome</h1>
         <h1>{{__(Auth::user()->name)}}</h1> <!-- How do i make this show the username? -->
+        <h2>{{__(Auth::user()->first_name)}} {{__(Auth::user()->last_name)}}</h2>
+
     </div>
 
     <div class="">
@@ -59,20 +61,41 @@
         <!-- <x-nav-link :href="route('events.index')" :active="request()->routeIs('groups.index')">
         <h2 class="dash_h2 colaButton nunito1 decoration-black">Check out local activity</h2>
         </x-nav-link> -->
-        @if(Auth::user()->role === "Organizer")
+        
+        @foreach($events as $event)
+            <a href="{{ route('events.show', $event->id) }}">
+                <x-event-card class="eventCard"
+                :tag="$event->tag"
+                :location="$event->location"
+                :time="$event->time"
+                ></x-event-card>
+            </a>
+        @endforeach
+    </div>
+
+    <!-- ORGANISERS ONLY -->
+    @if(Auth::user()->role === "Organizer")
+        <h2 class="dash_h2">Manage My Events</h2>
+            
+
+            <!-- <h2 class="dash_h2">Quick Links</h2> -->
+        <div class="dash_thingy nunito1">
             <x-nav-link :href="route('events.index')" :active="request()->routeIs('events.index')"> 
-                <h2 class="dash_h2 manageGroupButton nunito1 decoration-black">Manage My Events</h2>
+                <h2 class="dash_h2 manageGroupButton nunito1 decoration-black">Manage All</h2>
             </x-nav-link>
-        @endif
-    @foreach($events as $event)
-        <a href="{{ route('events.show', $event->id) }}">
-            <x-event-card class="eventCard"
-            :tag="$event->tag"
-            :location="$event->location"
-            :time="$event->time"
-            ></x-event-card>
-        </a>
-    @endforeach
+            @foreach($events as $event)
+                @if($event->organiser_id === Auth::id())
+                    <a href="{{ route('events.show', $event->id) }}">
+                        <x-event-card class="eventCard"
+                        :tag="$event->tag"
+                        :location="$event->location"
+                        :time="$event->time"
+                        ></x-event-card>
+                    </a>
+                @endif
+            @endforeach
+        </div> 
+    @endif
 
         <!-- <div class="loacalActivityBody">
             <div class="localActivityTag LATGreen">Litter Picking</div>
@@ -124,7 +147,7 @@
             <div class="localActivityLocation">Somewhere</div>
             <div class="localActivityTime">10:20</div>
         </div>-->
-    </div> 
+    
     </body>
 
 

@@ -1,4 +1,4 @@
-@props(['title','location','description', 'tag', 'time', 'attendance_restriction', 'attendees'])
+@props(['title','location','description', 'organiser_id', 'tag', 'time', 'attendance_restriction', 'attendees'])
 @extends('layouts.app')
 
 <div class="nunito1">
@@ -31,23 +31,22 @@
     <h2 class="text-center"><strong>Attendance Info</strong></h2>
     <h2>Attendance Restrictions: <strong>{{$attendance_restriction}}</strong></h2>
     <h2>Attendees: <strong>{{$attendees}}</strong></h2>
-    
-    @if($attendance_restriction === "Open") 
-        <x-nav-link :href="route('events.index')" :active="request()->routeIs('events.index')"> 
-        <h2 class="dash_h2 attendButton nunito1 decoration-black">Attend this Event</h2>
-        </x-nav-link>
-    @elseif($attendance_restriction === "MembersOnly")
-    <h2 class="dash_h2 attendButtonDenied nunito1">Only Members of this group can attend this event</h2>
-    <!-- make so user can join if they are a member -->
-    @elseif($attendance_restriction === "InviteOnly")
+        @if($attendance_restriction === "Open") 
+            <x-nav-link :href="route('events.index')" :active="request()->routeIs('events.index')"> 
+            <h2 class="dash_h2 attendButton nunito1 decoration-black">Attend this Event</h2>
+            </x-nav-link>
+        @elseif($attendance_restriction === "MembersOnly")
+        <h2 class="dash_h2 attendButtonDenied nunito1">Only Members of this group can attend this event</h2>
+        <!-- make so user can join if they are a member -->
+        @elseif($attendance_restriction === "InviteOnly")
+            <a href="">
+                <h2 class="dash_h2 attendButtonDenied nunito1">You must be invited to attend this event</h2>
+            </a>
+        
+        @else
         <a href="">
-            <h2 class="dash_h2 attendButtonDenied nunito1">You must be invited to attend this event</h2>
-        </a>
-    
-    @else
-    <a href="">
-            <h2 class="dash_h2 attendButtonDenied nunito1">(INVALID_RESTRICTIONS_SET)</h2>
-        </a>
-    @endif
+                <h2 class="dash_h2 attendButtonDenied nunito1">(INVALID_RESTRICTIONS_SET)</h2>
+            </a>
+        @endif
     </div>
 </div>
