@@ -10,7 +10,7 @@ class Event extends Model
 {
     //
     use HasFactory;
-    protected $fillable = ['title', 'description', 'tag', 'location', 'time', 'attendance_restriction', 'attendees', 'organiser_id']; // Ensure this matches your database columns
+    protected $fillable = ['title', 'description', 'tag', 'location', 'time', 'attendance_restriction', 'attendees']; // Ensure this matches your database columns
 
     public function users() {
         // return $this->hasMany(User::class);

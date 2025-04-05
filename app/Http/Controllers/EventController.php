@@ -39,34 +39,23 @@ class EventController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        
-        //dd($request->all());
-        $request->validate([
-            'name' => 'required',
-            'tag' => 'required',
-            'description' => 'required|max:1000',
-            'location' => 'required|max:500',
-            'attendance_restriction' => 'required',
-        ]);
+{
+    // Validate the incoming request
+    $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'tag' => 'required|string|max:255',
+        'description' => 'required|string|max:255',
+        'location' => 'required|string|max:255',
+        'time' => 'required|string|max:255',
+        'attendance_restriction' => 'required|string|max:255',
+    ]);
 
-        //Create a record in the database
-        Event::create([
-            'name' => $request->name,
-            'tag' => $request->tag,
-            'description' => $request->description,
-            'location' => $request->location,
-            'attendance_restriction' => $request->attendance_restriction,
-            'attendees' => 0,
-            'created_at' => now(),
-            'updated_at' => now()
-        ]);
+    // Create a new event using the validated data
+    Event::create($validated);
 
-        //Redirect to the index page with a success message
-        return to_route('events.index')->with('success', 'Event created successfully!');
-
-        
-    }
+    // Redirect or return a response
+    return redirect()->route('events.index');
+}
 
     /**
      * Display the specified resource.
@@ -80,10 +69,10 @@ class EventController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Event $events, Request $request)
+    public function edit(Event $event, Request $request)
     {
 
-        return view('events.edit', compact('events'));
+        return view('events.edit', compact('event'));
         
     }
 
@@ -93,28 +82,21 @@ class EventController extends Controller
     public function update(Request $request, Event $event)
     {
     //dd($request->all());
-    $request->validate([
-        'name' => 'required',
-        'tag' => 'required',
-        'description' => 'required|max:1000',
-        'location' => 'required|max:500',
-        'attendance_restriction' => 'required',
+    // Validate the incoming request
+    $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'tag' => 'required|string|max:255',
+        'description' => 'required|string|max:255',
+        'location' => 'required|string|max:255',
+        'time' => 'required|string|max:255',
+        'attendance_restriction' => 'required|string|max:255',
     ]);
 
-    //Create a record in the database
-    Event::update([
-        'name' => $request->name,
-        'tag' => $request->tag,
-        'description' => $request->description,
-        'location' => $request->location,
-        'attendance_restriction' => $request->attendance_restriction,
-        'attendees' => 0,
-        'created_at' => now(),
-        'updated_at' => now()
-    ]);
+    // Create a new event using the validated data
+   $event->update($validated);
 
-    //Redirect to the index page with a success message
-    return to_route('events.index')->with('success', 'Event Updated successfully!');
+    // Redirect or return a response
+    return redirect()->route('events.index');
     }
 
     /**

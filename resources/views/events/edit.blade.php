@@ -2,9 +2,9 @@
     <div>
         <h3>Edit an Event</h3>
         <x-event-form 
-            :action="route('events.update', $events)" 
+            :action="route('events.update', $event)"
             :method="'PUT'" 
-            :events="$events"
+            :event="$event"
         />
     </div>
 </x-app-layout>
