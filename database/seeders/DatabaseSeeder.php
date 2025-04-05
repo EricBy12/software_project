@@ -45,8 +45,10 @@ class DatabaseSeeder extends Seeder
             'password' => "123456789"
         ]);
 
+        $this->call(UserSeeder::class);
         $this->call(GroupSeeder::class);
         $this->call(EventSeeder::class);
+        
 
         // These are unused now
         // $this->call(SettingSeeder::class);

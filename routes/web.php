@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Event;
@@ -39,6 +40,8 @@ Route::middleware('auth')->group(function () {
     Route::put('/events/{events}/update', [EventController::class, 'update'])->name('events.update'); //Updates a record in the database
     Route::post('/events', [EventController::class, 'store'])->name('events.store'); //Adds a record to the database
     Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy'); //Delets a record from the database
+
+    Route::resource('users', UserController::class)->middleware('auth');
 });
 
 require __DIR__.'/auth.php';
