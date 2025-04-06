@@ -1,3 +1,10 @@
-<div>
-    <!-- Nothing in life is to be feared, it is only to be understood. Now is the time to understand more, so that we may fear less. - Marie Curie -->
-</div>
+<x-app-layout>
+    <div>
+        <h3>Edit an Event</h3>
+        <x-group-form 
+            :action="route('groups.update', $group)"
+            :method="'PUT'" 
+            :group="$group"
+        />
+    </div>
+</x-app-layout>
