@@ -12,6 +12,9 @@
      <x-alert-success>
         {{session('success')}}
     </x-alert-success>
+    <x-nav-link :href="route('events.create')" :active="request()->routeIs('events.create')"> 
+    <h2 class="dash_h2 createGROUPButton nunito1 decoration-black">Organise an Event</h2>
+    </x-nav-link>
     @foreach($events as $event)
         <div class="">
         <x-my-events-card class=""

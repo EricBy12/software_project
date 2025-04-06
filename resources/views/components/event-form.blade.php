@@ -1,6 +1,6 @@
 @props(['action','method', 'event'])
 
-<form action="{{ $action }}" method="POST" enctype="multipart/form-data">
+<form action="{{ $action }}" method="POST" enctype="multipart/form-data" class="form">
     @csrf
     @if($method === 'PUT' || $method === 'PATCH')
         @method($method)
@@ -19,12 +19,11 @@
     </div>
 
     <div class="mb-4">
-        <label for="tag">Event Type Tag</label>
-        <input class="inputFields1" type="text"
-        name="tag"
-        id="tag"
-        value="{{old('tag',$event->tag ?? '')}}"
-        required>
+        <label for="dropdown">Select a tag for the Event</label>
+        <select class="inputFields1" name="tag" id="dropdown" required>
+                <option value="{{old('tag',$event->tag ?? '')}}">Beach Clean</option>
+                <option value="{{old('tag',$event->tag ?? '')}}">Litter Pick</option>
+        </select>
         @error('tag')
         <p class="text-sm text-red-600">{{$message}}</p>
         @enderror
@@ -68,11 +67,11 @@
 
     <div class="mb-4">
         <label for="attendance_restriction">Attendance Restrictions</label>
-        <input class="inputFields1" type="text"
-        name="attendance_restriction"
-        id="attendance_restriction"
-        value="{{old('attendance_restriction',$event->attendance_restriction ?? '')}}"
-        required>
+        <select class="inputFields1" name="attendance_restriction" id="dropdown" required>
+                <option value=" 'Open'{{old('attendance_restriction',$event->attendance_restriction ?? '')}}">Open</option>
+                <option value="'Members Only'{{old('attendance_restriction',$event->attendance_restriction ?? '')}}">Members Only</option>
+                <option value="'Invite Only'{{old('attendance_restriction',$event->attendance_restriction ?? '')}}">Invite Only</option>
+        </select>
         @error('attendance_restriction')
         <p class="text-sm text-red-600">{{$message}}</p>
         @enderror

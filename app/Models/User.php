@@ -25,12 +25,12 @@ class User extends Authenticatable
 
     public function groups() {
         // return $this->hasMany(User::class);
-        return $this->belongsToMany(Group::class);
+        return $this->belongsToMany(Group::class)->withPivot('id');
     }
 
     public function events() {
         // return $this->hasMany(User::class);
-        return $this->belongsToMany(Event::class);
+        return $this->belongsToMany(Event::class)->withPivot('id');
     }
 
     /**

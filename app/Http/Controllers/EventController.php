@@ -5,6 +5,7 @@ use App\Http\Controllers\Log;
 use App\Models\Event;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -51,7 +52,9 @@ class EventController extends Controller
     ]);
 
     // Create a new event using the validated data
-    Event::create($validated);
+    $event = Event::create($validated);
+
+    $event->users()->attach(Auth::id());
 
     // Redirect or return a response
     return redirect()->route('events.index');

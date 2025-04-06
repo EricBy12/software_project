@@ -84,7 +84,7 @@
                 <h2 class="dash_h2 manageGroupButton nunito1 decoration-black">Manage All</h2>
             </x-nav-link>
             @foreach($events as $event)
-                @if($event->organiser_id === Auth::id())
+            @if($event->users->contains(Auth::id()))
                     <a href="{{ route('events.show', $event->id) }}">
                         <x-event-card class="eventCard"
                         :tag="$event->tag"
