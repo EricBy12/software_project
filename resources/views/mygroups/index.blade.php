@@ -7,11 +7,11 @@
         <h2 class='GroupsHeadingTXT nunito1'>My Groups</h2>
     </div>
     <div class="">
-    <x-nav-link :href="route('events.create')" :active="request()->routeIs('events.create')"> 
+    <x-nav-link :href="route('groups.create')" :active="request()->routeIs('groups.create')"> 
     <h2 class="dash_h2 createGROUPButton nunito1 decoration-black">Create a new Group</h2>
     </x-nav-link>
     @foreach($groups as $group)
-        @if($group->user_id === Auth::id())
+        @if($group->users->contains(Auth::id()))
             <x-mygroup-card class="groupCard"
             :title="$group->title"
             :description="$group->description"

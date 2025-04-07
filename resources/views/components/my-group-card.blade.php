@@ -10,7 +10,7 @@
         </div>
 
         <div class="">
-            <button class="manageGROUPButton" href=""><strong>Manage</strong></button>
+            <button class="manageGROUPButton" href="route('groups.edit',' $group')"><strong>Manage</strong></button>
             <!-- <a class="joinGROUPButton" href="">Join Group</a> -->
 
             <!-- joinedGroup -->

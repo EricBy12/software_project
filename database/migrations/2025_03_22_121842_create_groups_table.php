@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string("title")->default("(NOT_FOUND)");
             $table->string("description")->default("");
             $table->string("location")->default("(NOT_FOUND)");
-            $table->integer("members");
+            $table->integer("owner")->foreginId('users');
+            $table->integer("members")->default(1);
             $table->string("groupAdmissions")->default("Open");
             $table->boolean("privateStats")->default(false);
             //$table->boolean("appearOnLeaderboard")->default(true);

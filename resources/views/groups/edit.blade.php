@@ -1,6 +1,6 @@
 <x-app-layout>
     <div>
-        <h3>Edit an Event</h3>
+        <h3>Edit an Group</h3>
         <x-group-form 
             :action="route('groups.update', $group)"
             :method="'PUT'" 

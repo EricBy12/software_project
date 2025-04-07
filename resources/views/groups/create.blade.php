@@ -1,8 +1,8 @@
 <x-app-layout>
     <div>
-        <h3 class="GroupsHeadingTXT">Organise an Event</h3>
-        <x-event-form 
-            :action="route('events.store')" 
+        <h3 class="GroupsHeadingTXT">Set up a Group</h3>
+        <x-group-form 
+            :action="route('groups.store')" 
             :method="'POST'" 
         />
     </div>
