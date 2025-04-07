@@ -13,6 +13,7 @@
     @foreach($groups as $group)
         @if($group->users->contains(Auth::id()))
             <x-mygroup-card class="groupCard"
+            :id="$group->id"
             :title="$group->title"
             :description="$group->description"
             :location="$group->location"

@@ -1,4 +1,4 @@
-@props(['title', 'description', 'location', 'members'])
+@props(['id', 'title', 'description', 'location', 'members'])
 
 <div class="groupCard nunito1">
     <div class="GCFlex">
@@ -9,14 +9,7 @@
             <p><strong>Members:</strong> {{$members}}</p>
         </div>
 
-        <div class="">
-            <button class="manageGROUPButton" href="route('groups.edit',' $group')"><strong>Manage</strong></button>
-            <!-- <a class="joinGROUPButton" href="">Join Group</a> -->
-
-            <!-- joinedGroup -->
-            <!-- <button class="leaveGROUPButton" href=""><strong>Leave Group</strong></button> -->
-
-        </div>
+        
     </div>
     <p><strong>Description:</strong> {{$description}}</p>
 </div>

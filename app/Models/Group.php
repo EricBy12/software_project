@@ -9,10 +9,17 @@ class Group extends Model
 {
     //use HasFactory;
     
-    protected $fillable = ['title','description', 'members', 'attendance_restriction', 'privateStats'];
+    protected $fillable = ['title','description', 'members', 'attendance_restriction', 'privateStats', 'owner_id'];
 
     public function users() {
         // return $this->hasMany(User::class);
         return $this->belongsToMany(User::class)->withPivot('id');
     }
+
+    // In Group model (App\Models\Group)
+public function owner() //Chat GPT
+{
+    return $this->belongsTo(User::class, 'owner_id');  // 'owner_id' is the foreign key
+}
+
 }

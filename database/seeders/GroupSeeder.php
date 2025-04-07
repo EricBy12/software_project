@@ -16,24 +16,15 @@ class GroupSeeder extends Seeder
     public function run(): void
     {
         $groups =[
-            [ "title" => "Bray Beach Patrol", "description" => "We are a small group of locals who want to keep our beaches clean", "location" => "Bray Beach", "members" => 19],
-            [ "title" => "Marley Park litter picking", "description" => "We are a group of locals who love the peace and nature that Marley Park provides, and we are dedicated to keeping it clean and preserving its wldlife", "location" => "Marley Park", "members" => 28],
-            [ "title" => "Finders CLeaners", "description" => "We own this app. #FindersCleanersFORTHEWIN", "location" => "THISAPP", "members" => 1],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
-            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36],
+            [ "title" => "Bray Beach Patrol", "description" => "We are a small group of locals who want to keep our beaches clean", "location" => "Bray Beach", "members" => 19, "owner_id" => 1],
+            [ "title" => "Marley Park litter picking", "description" => "We are a group of locals who love the peace and nature that Marley Park provides, and we are dedicated to keeping it clean and preserving its wldlife", "location" => "Marley Park", "members" => 28 ,"owner_id" => 1],
+            [ "title" => "Finders CLeaners", "description" => "We own this app. #FindersCleanersFORTHEWIN", "location" => "THISAPP", "members" => 1, "owner_id" => 1],
+            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36, "owner_id" => 1],
+            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36, "owner_id" => 1],
+            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36, "owner_id" => 1],
+            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36, "owner_id" => 1],
+            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36, "owner_id" => 1],
+            [ "title" => "IM OUT OF NAME IDEAS", "description" => "AHHHHHHHHHHH", "location" => "Dublin", "members" => 36, "owner_id" => 1]
         ];
 
         $currentTimestamp = now();

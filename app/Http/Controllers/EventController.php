@@ -54,7 +54,9 @@ class EventController extends Controller
     // Create a new event using the validated data
     $event = Event::create($validated);
 
-    $event->users()->attach(Auth::id());
+    //$event->organizer()->attach(Auth::id());
+    $event->organizer()->associate(Auth::user()); // Assuming 'organizer' is a BelongsTo relationship
+    $event->save();
 
     // Redirect or return a response
     return redirect()->route('events.index');

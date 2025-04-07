@@ -54,6 +54,8 @@ class GroupController extends Controller
     $group = Group::create($validated);
 
     $group->users()->attach(Auth::id());
+    $group->owner()->associate(Auth::user());
+    $group->save();
 
     // Redirect or return a response
     return redirect()->route('mygroups.index');
@@ -65,6 +67,13 @@ class GroupController extends Controller
     public function show(Group $group)
     {
         return view('groups.show', compact('group'));
+    }
+
+    public function joinGroup(Group $group) {
+        $group->users()->attach(Auth::id());
+        $group->members ++;
+        $group->save();
+        return redirect()->route('groups.index',  compact('group'));
     }
     
 
@@ -87,18 +96,16 @@ class GroupController extends Controller
     // Validate the incoming request
     $validated = $request->validate([
         'title' => 'required|string|max:255',
-        'tag' => 'required|string|max:255',
         'description' => 'required|string|max:255',
         'location' => 'required|string|max:255',
-        'time' => 'required|string|max:255',
         'attendance_restriction' => 'required|string|max:255',
     ]);
 
-    // Create a new group using the validated data
+    // Update a group using the validated data
    $group->update($validated);
 
     // Redirect or return a response
-    return redirect()->route('mygroups.index');
+    return redirect()->route('groups.index');
     }
 
     /**
@@ -106,6 +113,10 @@ class GroupController extends Controller
      */
     public function destroy(Group $group)
     {
-        //
+            // Deletes a restaurant from the database
+    $group->delete();
+
+    // Redirect back to the index page with a success message
+    return to_route('groups.index')->with('success', 'Group deleted successfully!');
     }
 }

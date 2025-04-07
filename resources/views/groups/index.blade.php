@@ -9,6 +9,7 @@
     </div>
     <div class="">
     @foreach($groups as $group)
+    <a href="{{ route('groups.show', $group->id) }}">
         <x-group-card class="groupCard"
         :title="$group->title"
         :description="$group->description"

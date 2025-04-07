@@ -19,10 +19,10 @@
     </div>
 
     <div class="mb-4">
-        <label for="dropdown">Select a tag for the Event</label>
+        <label for="dropdown">Select a tag for the Tag</label>
         <select class="inputFields1" name="tag" id="dropdown" required>
-                <option value="{{old('tag',$event->tag ?? '')}}">Beach Clean</option>
-                <option value="{{old('tag',$event->tag ?? '')}}">Litter Pick</option>
+                <option value="Beach Clean">Beach Clean</option>
+                <option value="Litter Pick">Litter Pick</option>
         </select>
         @error('tag')
         <p class="text-sm text-red-600">{{$message}}</p>

@@ -27,9 +27,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/groups', [GroupController::class, 'index'])->name('groups.index'); //Uses the index method from the GroupController to display a list of all of the records
     Route::get('/groups/create', [GroupController::class, 'create'])->name('groups.create'); //Dispalys the create form
-    Route::get('/groups/{groups}', [GroupController::class, 'show'])->name('groups.show'); //Displays an indevidual record
-    Route::get('/groups/{groups}/edit', [GroupController::class, 'edit'])->name('groups.edit'); //Displays the edit form
-    Route::put('/groups/{groups}/update', [GroupController::class, 'update'])->name('groups.update'); //Updates a record in the database
+    Route::get('/groups/{group}', [GroupController::class, 'show'])->name('groups.show'); //Displays an indevidual record
+    Route::get('/groups/{group}/edit', [GroupController::class, 'edit'])->name('groups.edit'); //Displays the edit form
+    Route::put('/groups/{group}', [GroupController::class, 'update'])->name('groups.update');
+ //Updates a record in the database
     Route::post('/groups', [GroupController::class, 'store'])->name('groups.store'); //Adds a record to the database
     Route::delete('/groups/{groups}', [GroupController::class, 'destroy'])->name('groups.destroy'); //Delets a record from the database
 
@@ -43,6 +44,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy'); //Delets a record from the database
 
     Route::resource('users', UserController::class)->middleware('auth');
+
+    Route::match(['get', 'put'], '/group/joinGroup', [GroupController::class, 'joinGroup'])->name('groups.joinGroup');
+    
 });
 
 require __DIR__.'/auth.php';
