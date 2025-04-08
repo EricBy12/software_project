@@ -97,7 +97,6 @@ class GroupController extends Controller
     $validated = $request->validate([
         'title' => 'required|string|max:255',
         'description' => 'required|string|max:255',
-        'location' => 'required|string|max:255',
         'groupAdmissions' => 'required|string|max:255',
     ]);
 
