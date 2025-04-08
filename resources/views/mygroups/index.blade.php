@@ -16,7 +16,7 @@
             :id="$group->id"
             :title="$group->title"
             :description="$group->description"
-            :location="$group->location"
+            :groupAdmissions="$group->groupAdmissions"
             :members="$group->members"
             ></x-mygroup-card>
         @endif

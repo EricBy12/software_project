@@ -4,7 +4,7 @@
     :description="$group->description"
     :tag="$group->tag"
     :location="$group->location"
-    :attendance_restriction="$group->attendance_restriction"
+    :groupAdmissions="$group->groupAdmissions"
     :members="$group->members"
     ></x-group-details>
     <div class="dash_groupButtons dash_thingy">
