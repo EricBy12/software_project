@@ -98,7 +98,7 @@ class GroupController extends Controller
         'title' => 'required|string|max:255',
         'description' => 'required|string|max:255',
         'location' => 'required|string|max:255',
-        'attendance_restriction' => 'required|string|max:255',
+        'groupAdmissions' => 'required|string|max:255',
     ]);
 
     // Update a group using the validated data
