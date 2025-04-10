@@ -9,7 +9,7 @@ class Group extends Model
 {
     //use HasFactory;
     
-    protected $fillable = ['title','description', 'members', 'attendance_restriction', 'privateStats', 'owner_id'];
+    protected $fillable = ['title','description','location', 'members', 'groupAdmissions', 'privateStats', 'owner_id'];
 
     public function users() {
         // return $this->hasMany(User::class);

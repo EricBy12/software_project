@@ -13,7 +13,7 @@
         <x-group-card class="groupCard"
         :title="$group->title"
         :description="$group->description"
-        :location="$group->location"
+        :groupAdmissions="$group->groupAdmissions"
         :members="$group->members"
         ></x-group-card>
     @endforeach

@@ -45,9 +45,9 @@ class GroupController extends Controller
     // Validate the incoming request
     $validated = $request->validate([
         'title' => 'required|string|max:255',
-        'tag' => 'required|string|max:255',
         'description' => 'required|string|max:255',
         'location' => 'required|string|max:255',
+        'groupAdmissions' => 'required|string|max:255',
     ]);
 
     // Create a new group using the validated data
@@ -107,8 +107,7 @@ class GroupController extends Controller
     $validated = $request->validate([
         'title' => 'required|string|max:255',
         'description' => 'required|string|max:255',
-        'location' => 'required|string|max:255',
-        'attendance_restriction' => 'required|string|max:255',
+        'groupAdmissions' => 'required|string|max:255',
     ]);
 
     // Update a group using the validated data

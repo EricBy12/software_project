@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/groups/{group}', [GroupController::class, 'update'])->name('groups.update');
  //Updates a record in the database
     Route::post('/groups', [GroupController::class, 'store'])->name('groups.store'); //Adds a record to the database
-    Route::delete('/groups/{groups}', [GroupController::class, 'destroy'])->name('groups.destroy'); //Delets a record from the database
+    Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('groups.destroy'); //Delets a record from the database
 
     Route::post('/join-group', [GroupController::class, 'joinGroup'])->middleware('auth');//chat gpt
 
