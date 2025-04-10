@@ -68,9 +68,9 @@
     <div class="mb-4">
         <label for="attendance_restriction">Attendance Restrictions</label>
         <select class="inputFields1" name="attendance_restriction" id="dropdown" required>
-                <option value=" 'Open'{{old('attendance_restriction',$event->attendance_restriction ?? '')}}">Open</option>
-                <option value="'Members Only'{{old('attendance_restriction',$event->attendance_restriction ?? '')}}">Members Only</option>
-                <option value="'Invite Only'{{old('attendance_restriction',$event->attendance_restriction ?? '')}}">Invite Only</option>
+                <option value=" Open{{old('attendance_restriction',$event->attendance_restriction ?? '')}}">Open</option>
+                <option value="Members Only{{old('attendance_restriction',$event->attendance_restriction ?? '')}}">Members Only</option>
+                <option value="Invite Only{{old('attendance_restriction',$event->attendance_restriction ?? '')}}">Invite Only</option>
         </select>
         @error('attendance_restriction')
         <p class="text-sm text-red-600">{{$message}}</p>

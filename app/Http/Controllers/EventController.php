@@ -41,6 +41,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
 {
+    
     // Validate the incoming request
     $validated = $request->validate([
         'title' => 'required|string|max:255',
@@ -55,7 +56,8 @@ class EventController extends Controller
     $event = Event::create($validated);
 
     //$event->organizer()->attach(Auth::id());
-    $event->organizer()->associate(Auth::user()); // Assuming 'organizer' is a BelongsTo relationship
+    $event->users()->attach(Auth::id());
+    $event->organizer()->associate(Auth::user());
     $event->save();
 
     // Redirect or return a response
@@ -70,17 +72,18 @@ class EventController extends Controller
         return view('events.show', compact('event'));
     }
 
-    public function joinEvent(Request $request)//chat gpt
+    public function joinEvent(Request $request, Event $event)//chat gpt
     {
         $request->validate([
             'event_id' => 'required|exists:events,id',
         ]);
     
         $user = auth()->user();
+        $event->increment('attendees');//chat gpt
     
         // Prevent duplicates using syncWithoutDetaching
         $user->events()->syncWithoutDetaching([$request->event_id]);
-        return to_route('events.index')->with('success', 'You Joined a event!');
+        return to_route('dashboard')->with('success', 'You Joined a event!');
     }
     
 
@@ -137,6 +140,7 @@ public function leaveEvent(Request $request, Event $event)
         ]);
         $user = auth()->user();
         $event->users()->detach($user->id); //chat gpt
+        $event->decrement('attendees');//chat gpt
         return to_route('dashboard')->with('success', 'You are no longer attending the event');
     }
 }

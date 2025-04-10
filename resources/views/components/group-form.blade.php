@@ -31,10 +31,22 @@
     </div>
 
     <div class="mb-4">
-        <label for="groupAdmissions">Group Admissions</label>
+        <label for="location">Location</label>
+        <input class="inputFields1" type="text"
+        name="location"
+        id="location"
+        value="{{old('location',$group->location ?? '')}}"
+        required>
+        @error('location')
+        <p class="text-sm text-red-600">{{$message}}</p>
+        @enderror
+    </div>
+
+    <div class="mb-4">
+        <label for="dropdown">Group Admissions</label>
         <select class="inputFields1" name="groupAdmissions" id="dropdown" required>
                 <option value=" Open{{old('groupAdmissions',$event->groupAdmissions ?? '')}}">Open</option>
-                <option value="Members Only{{old('groupAdmissions',$event->groupAdmissions ?? '')}}">Members Only</option>
+                <option value=" Members Only{{old('groupAdmissions',$event->groupAdmissions ?? '')}}">Members Only</option>
                 <option value="Invite Only{{old('groupAdmissions',$event->groupAdmissions ?? '')}}">Invite Only</option>
         </select>
         @error('groupAdmissions')

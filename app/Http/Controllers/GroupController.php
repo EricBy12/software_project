@@ -77,13 +77,16 @@ class GroupController extends Controller
         return view('groups.show', compact('group'));
     }
 
-    public function joinGroup(Request $request)//chat gpt
+    public function joinGroup(Request $request,Group $group)//chat gpt assisted
 {
     $request->validate([
         'group_id' => 'required|exists:groups,id',
     ]);
 
     $user = auth()->user();
+
+    $group->increment('members');//chat gpt
+    auth()->user()->increment('joinedGroups');//chat gpt
 
     // Prevent duplicates using syncWithoutDetaching
     $user->groups()->syncWithoutDetaching([$request->group_id]);
@@ -112,6 +115,7 @@ class GroupController extends Controller
     $validated = $request->validate([
         'title' => 'required|string|max:255',
         'description' => 'required|string|max:255',
+        'location' => 'required|string|max:255',
         'groupAdmissions' => 'required|string|max:255',
     ]);
 
@@ -140,6 +144,9 @@ class GroupController extends Controller
             'group_id' => 'required|exists:groups,id',
         ]);
         $user = auth()->user();
+        $group->decrement('members');//chat gpt
+        auth()->user()->decrement('joinedGroups');//chat gpt
         $group->users()->detach($user->id); //chat gpt
+        return to_route('groups.index')->with('success', 'Group left successfully!');
     }
 }

@@ -29,16 +29,7 @@
                 <div class="dash_groupButtons">
                     <x-nav-link :href="route('groups.index')" :active="request()->routeIs('groups.index')">
                     <h2 class="dash_h2 joinGroupButton nunito1 decoration-black"> Join a Group</h2>
-                    </x-nav-link>
-                    
-
-                    @if(Auth::user()->joinedGroups > 0)
-                    <!-- route this to joined groups page? -->
-                    <x-nav-link :href="route('groups.joinedGroups')" :active="request()->routeIs('groups.joinedGroups')"> 
-                    <h2 class="dash_h2 joinedGroupsButton nunito1 decoration-black">Joined Groups</h2>
-                    </x-nav-link>
-                    @endif
-                    
+                    </x-nav-link>                    
                     
                 </div>
                 <!-- ORGANISERS ONLY -->

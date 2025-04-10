@@ -32,6 +32,7 @@
     </div>
     
     </div>
+    @if(Auth::user()->role === "Organizer")
     <div class="dash_groupButtons edit_del">
         
             <a href="{{route('events.edit', $event)}}"><h2 class="mt-2 mb-0 dash_h2 EditE nunito1 decoration-black">Edit Event</h2></a>
@@ -45,3 +46,4 @@
                     </button>
                 </form>
 </div>
+@endif
