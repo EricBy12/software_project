@@ -17,6 +17,7 @@
     </x-nav-link>
     @foreach($events as $event)
         <div class="">
+        <a href="{{ route('events.show', $event->id) }}">
         <x-my-events-card class=""
             :id="$event->id"
             :title="$event->title"

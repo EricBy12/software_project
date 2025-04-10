@@ -15,10 +15,18 @@ class GroupController extends Controller
      */
     public function index()
     {
-        {
+        
             $groups = Group::all();
             return view('groups.index', compact('groups'));
-        }
+        
+    }
+
+    public function joinedGroups()
+    {
+        
+            $groups = Group::all();
+            return view('groups.joinedGroups', compact('groups'));
+        
     }
 
     public function my_index()
@@ -79,10 +87,7 @@ class GroupController extends Controller
 
     // Prevent duplicates using syncWithoutDetaching
     $user->groups()->syncWithoutDetaching([$request->group_id]);
-
-    return response()->json([
-        'message' => 'You have successfully joined the group.',
-    ]);
+    return to_route('groups.index')->with('success', 'You Joined a group!');
 }
 
     
@@ -127,5 +132,14 @@ class GroupController extends Controller
 
     // Redirect back to the index page with a success message
     return to_route('groups.index')->with('success', 'Group deleted successfully!');
+    }
+
+    public function leaveGroup(Request $request, Group $group)
+    {
+        $request->validate([
+            'group_id' => 'required|exists:groups,id',
+        ]);
+        $user = auth()->user();
+        $group->users()->detach($user->id); //chat gpt
     }
 }

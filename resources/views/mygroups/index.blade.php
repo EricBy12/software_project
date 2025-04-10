@@ -12,9 +12,11 @@
     </x-nav-link>
     @foreach($groups as $group)
         @if($group->users->contains(Auth::id()))
+            <a href="{{ route('groups.show', $group->id) }}">
             <x-mygroup-card class="groupCard"
             :id="$group->id"
             :title="$group->title"
+            :location="$group->location"
             :description="$group->description"
             :groupAdmissions="$group->groupAdmissions"
             :members="$group->members"

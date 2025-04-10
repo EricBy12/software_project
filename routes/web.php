@@ -7,6 +7,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Event;
+use App\Models\Group;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -14,7 +16,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
         $events = Event::all();
-        return view('dashboard', compact('events'));
+        $groups = Group::all();
+        return view('dashboard', compact('events', 'groups'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
@@ -26,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mygroups', [GroupController::class, 'my_index'])->name('mygroups.index'); //Shows the organisers groups
 
     Route::get('/groups', [GroupController::class, 'index'])->name('groups.index'); //Uses the index method from the GroupController to display a list of all of the records
+    Route::get('/groups/joined', [GroupController::class, 'joinedGroups'])->name('groups.joinedGroups');
     Route::get('/groups/create', [GroupController::class, 'create'])->name('groups.create'); //Dispalys the create form
     Route::get('/groups/{group}', [GroupController::class, 'show'])->name('groups.show'); //Displays an indevidual record
     Route::get('/groups/{group}/edit', [GroupController::class, 'edit'])->name('groups.edit'); //Displays the edit form
@@ -34,7 +38,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/groups', [GroupController::class, 'store'])->name('groups.store'); //Adds a record to the database
     Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('groups.destroy'); //Delets a record from the database
 
-    Route::post('/join-group', [GroupController::class, 'joinGroup'])->middleware('auth');//chat gpt
+   Route::post('/join-group', [GroupController::class, 'joinGroup'])->name('groups.joinGroup')->middleware('auth');//chat gpt
+   Route::post('/groups/{group}/leave', [GroupController::class, 'leaveGroup'])->name('groups.leaveGroup');//chat gpt
+
+   Route::post('/join-event', [EventController::class, 'joinEvent'])->name('events.joinEvent')->middleware('auth');//chat gpt
+   Route::post('/events/{event}/leave', [EventController::class, 'leaveEvent'])->name('events.leaveEvent');//chat gpt
+
 
 
     Route::get('/events', [EventController::class, 'index'])->name('events.index'); //Uses the index method from the EventController to display a list of all of the records
@@ -47,8 +56,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy'); //Delets a record from the database
 
     Route::resource('users', UserController::class)->middleware('auth');
-
-    Route::match(['get', 'put'], '/group/joinGroup', [GroupController::class, 'joinGroup'])->name('groups.joinGroup');
     
 });
 

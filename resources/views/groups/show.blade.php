@@ -20,4 +20,26 @@
                     </button>
                 </form>
     </div>
+
+    <div class="dash_groupButtons">
+    @if($group->users->contains(Auth::id()))
+            <!-- If the user is in the group, show 'Leave Group' button -->
+            <form action="{{ route('groups.leaveGroup') }}" method="POST">
+                @csrf
+                <input type="hidden" name="group_id" value="{{ $group->id }}">
+                <button type="submit" class="leaveGroupButton">
+                    Leave Group
+                </button>
+            </form>
+        @else
+            <!-- If the user is not in the group, show 'Join Group' button -->
+            <form action="{{ route('groups.joinGroup') }}" method="POST">
+                @csrf
+                <input type="hidden" name="group_id" value="{{ $group->id }}">
+                <button type="submit" class="joinGroupButton">
+                    Join Group
+                </button>
+            </form>
+        @endif
+</div>
 </div>

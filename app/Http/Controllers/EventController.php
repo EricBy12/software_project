@@ -69,6 +69,19 @@ class EventController extends Controller
     {
         return view('events.show', compact('event'));
     }
+
+    public function joinEvent(Request $request)//chat gpt
+    {
+        $request->validate([
+            'event_id' => 'required|exists:events,id',
+        ]);
+    
+        $user = auth()->user();
+    
+        // Prevent duplicates using syncWithoutDetaching
+        $user->events()->syncWithoutDetaching([$request->event_id]);
+        return to_route('events.index')->with('success', 'You Joined a event!');
+    }
     
 
     /**
@@ -116,4 +129,14 @@ class EventController extends Controller
     // Redirect back to the index page with a success message
     return to_route('events.index')->with('success', 'Event deleted successfully!');
 }
+
+public function leaveEvent(Request $request, Event $event)
+    {
+        $request->validate([
+            'event_id' => 'required|exists:events,id',
+        ]);
+        $user = auth()->user();
+        $event->users()->detach($user->id); //chat gpt
+        return to_route('dashboard')->with('success', 'You are no longer attending the event');
+    }
 }

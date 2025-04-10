@@ -34,7 +34,7 @@
 
                     @if(Auth::user()->joinedGroups > 0)
                     <!-- route this to joined groups page? -->
-                    <x-nav-link :href="route('groups.index')" :active="request()->routeIs('groups.index')"> 
+                    <x-nav-link :href="route('groups.joinedGroups')" :active="request()->routeIs('groups.joinedGroups')"> 
                     <h2 class="dash_h2 joinedGroupsButton nunito1 decoration-black">Joined Groups</h2>
                     </x-nav-link>
                     @endif
@@ -47,6 +47,16 @@
                     <h2 class="dash_h2 manageGroupButton nunito1 decoration-black">Manage My Groups</h2>
                     </x-nav-link>
                 @endif
+
+                @foreach($groups as $group)
+                    @if($group->users->contains(Auth::id()))
+                        <a href="{{ route('groups.show', $group->id) }}">
+                            <x-joined-groups-card class="groupCard"
+                            :title="$group->title"
+                            ></x-joined-groups-card>
+                        </a>
+                    @endif
+                @endforeach
             
             
         </div>

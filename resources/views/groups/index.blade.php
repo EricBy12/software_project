@@ -11,11 +11,13 @@
     @foreach($groups as $group)
     <a href="{{ route('groups.show', $group->id) }}">
         <x-group-card class="groupCard"
+        :id="$group->id"
         :title="$group->title"
         :description="$group->description"
         :groupAdmissions="$group->groupAdmissions"
         :members="$group->members"
         ></x-group-card>
+       
     @endforeach
     </div>
 </x-app-layout>
