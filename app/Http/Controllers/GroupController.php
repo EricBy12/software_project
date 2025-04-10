@@ -69,12 +69,22 @@ class GroupController extends Controller
         return view('groups.show', compact('group'));
     }
 
-    public function joinGroup(Group $group) {
-        $group->users()->attach(Auth::id());
-        $group->members ++;
-        $group->save();
-        return redirect()->route('groups.index',  compact('group'));
-    }
+    public function joinGroup(Request $request)//chat gpt
+{
+    $request->validate([
+        'group_id' => 'required|exists:groups,id',
+    ]);
+
+    $user = auth()->user();
+
+    // Prevent duplicates using syncWithoutDetaching
+    $user->groups()->syncWithoutDetaching([$request->group_id]);
+
+    return response()->json([
+        'message' => 'You have successfully joined the group.',
+    ]);
+}
+
     
 
     /**
