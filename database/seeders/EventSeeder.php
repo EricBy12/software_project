@@ -16,7 +16,7 @@ class EventSeeder extends Seeder
     public function run(): void
     {
         $events = [
-            ['group_id' => 1, "title" => "SUPER SECRET BEACH CLEAN", "tag" => "Beach Clean", "description" => "BEACHCLEANRAHHH!", "time" => "11:00","location" => "Secret clubhouse", "attendance_restriction" => "NO LOOOOSERS ALOWED(YOU KNOW WHO YOU ARE)", "attendees" => 5, "organizer_id" => 1],
+            // ['group_id' => 1, "title" => "SUPER SECRET BEACH CLEAN", "tag" => "Beach Clean", "description" => "BEACHCLEANRAHHH!", "time" => "11:00","location" => "Secret clubhouse", "attendance_restriction" => "NO LOOOOSERS ALOWED(YOU KNOW WHO YOU ARE)", "attendees" => 5, "organizer_id" => 1],
             ['group_id' => 1,"title" => "Bray beach clean", "tag" => "Beach Clean", "description" => "We are meeting up at the usual spot to do a sweep of the area","time" => "11:00","location" => "Bray Beach", "attendance_restriction" => "Open", "attendees" => 20, "organizer_id" => 1],
             ['group_id' => 2,"title" => "Community Meatup", "tag" => "Beach Clean", "description" => "We are doing a meetup tomorrow to clean the local beach","time" => "11:00","location" => "Howth Head", "attendance_restriction" => "Open", "attendees" => 5, "organizer_id" => 1],
             ['group_id' => 2,"title" => "Daily Beach Clean", "tag" => "Beach Clean", "description" => "Day 32 of our daily streak","time" => "11:00","location" => "Inch Beach", "attendance_restriction" => "Open", "attendees" => 5, "organizer_id" => 1],

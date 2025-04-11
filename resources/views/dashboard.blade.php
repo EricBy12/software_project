@@ -155,14 +155,14 @@
             <div class="localActivityTime">10:20</div>
         </div>-->
 
-        <div>
-            <form method="PUT" action="{{ route('profile.organizer', auth()->user()) }}"> <!-- chat gpt -->
-                @csrf
-                @method('PATCH') <!-- This tells Laravel to use the PATCH method -->
+        <!-- <div> -->
+            <!-- <form method="PUT" action="{{ route('profile.organizer', auth()->user()) }}"> chat gpt -->
+                <!-- @csrf -->
+                <!-- @method('PATCH') This tells Laravel to use the PATCH method -->
                 <!-- Your form fields here -->
-                <button type="submit">Apply to become an organizer</button>
-            </form>
-        </div>
+                <!-- <button class="mt-3 mb-3 manageGroupButton ATBAO" type="submit">Apply to become an organizer</button> -->
+            <!-- </form> -->
+        <!-- </div> -->
     
     </body>
 
