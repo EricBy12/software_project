@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string("title")->default("(NOT_FOUND)");
-            $table->string("description")->default("");
+            $table->text("description")->default("");
             $table->string("location")->default("(NOT_FOUND)");
             $table->unsignedBigInteger("owner_id")->nullable();
             $table->integer("members")->default(1);
