@@ -1,5 +1,7 @@
 @props(['action','method', 'event'])
 
+
+
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data" class="form">
     @csrf
     @if($method === 'PUT' || $method === 'PATCH')
@@ -78,7 +80,7 @@
     </div>
 
     <div>
-        <x-primary-button>
+        <x-primary-button class="createORedit">
             {{isset($event) ? 'Update Event' : 'Organise Event'}}
         </x-primary-button>
     </div>

@@ -26,6 +26,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    Route::put('/profile/{user}/organizer', [ProfileController::class, 'organizer'])->name('profile.organizer');
+
     Route::get('/mygroups', [GroupController::class, 'my_index'])->name('mygroups.index'); //Shows the organisers groups
 
     Route::get('/groups', [GroupController::class, 'index'])->name('groups.index'); //Uses the index method from the GroupController to display a list of all of the records
@@ -36,7 +38,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/groups/{group}', [GroupController::class, 'update'])->name('groups.update');
  //Updates a record in the database
     Route::post('/groups', [GroupController::class, 'store'])->name('groups.store'); //Adds a record to the database
-    Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('groups.destroy'); //Delets a record from the database
+    Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('groups.destroy'); //Deletes a record from the database
 
    Route::post('/join-group', [GroupController::class, 'joinGroup'])->name('groups.joinGroup')->middleware('auth');//chat gpt
    Route::post('/groups/{group}/leave', [GroupController::class, 'leaveGroup'])->name('groups.leaveGroup');//chat gpt

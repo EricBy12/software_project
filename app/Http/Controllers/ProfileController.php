@@ -57,4 +57,15 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function organizer(ProfileUpdateRequest $request) {
+        dd($request->all());
+   
+       // Update a group using the validated data
+       $request->user()->role = "organizer";
+       $request->user()->save();
+   
+       // Redirect or return a response
+       return redirect()->route('groups.index');
+       }
 }

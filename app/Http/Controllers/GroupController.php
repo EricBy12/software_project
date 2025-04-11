@@ -133,9 +133,10 @@ class GroupController extends Controller
     {
             // Deletes a restaurant from the database
     $group->delete();
+    auth()->user()->decrement('joinedGroups');
 
     // Redirect back to the index page with a success message
-    return to_route('groups.index')->with('success', 'Group deleted successfully!');
+    return to_route('mygroups.index')->with('success', 'Group deleted successfully!');
     }
 
     public function leaveGroup(Request $request, Group $group)

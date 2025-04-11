@@ -1,5 +1,7 @@
 @props(['action','method', 'group'])
 
+
+
 <form action="{{ $action }}" method="POST" enctype="multipart/form-data" class="form">
     @csrf
     @if($method === 'PUT' || $method === 'PATCH')
@@ -55,8 +57,8 @@
     </div>
 
     <div>
-        <x-primary-button>
-            {{isset($group) ? 'Update Group' : 'Organise Group'}}
+        <x-primary-button class="createORedit">
+            {{isset($group) ? 'Update Group' : 'Create Group'}}
         </x-primary-button>
     </div>
 </form>
