@@ -58,12 +58,16 @@ class ProfileController extends Controller
         return Redirect::to('/');
     }
 
-    public function organizer(ProfileUpdateRequest $request) {
-        dd($request->all());
+    public function organizer(Request $request, User $user) { //Makes the user an Organizer. (Does not work)
+        //dd($request->all());
+       // Validate the incoming request
+       $validated = $request->validate([
+           'role' => 'required|string|max:255',
+       ]);
    
        // Update a group using the validated data
-       $request->user()->role = "organizer";
-       $request->user()->save();
+       $user->role = "Organizer";
+       $user->save();
    
        // Redirect or return a response
        return redirect()->route('groups.index');

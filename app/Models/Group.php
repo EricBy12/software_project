@@ -17,7 +17,7 @@ class Group extends Model
     }
 
     // In Group model (App\Models\Group)
-public function owner() //Chat GPT
+public function owner() //ChatGPT.
 {
     return $this->belongsTo(User::class, 'owner_id');  // 'owner_id' is the foreign key
 }

@@ -25,7 +25,7 @@ class User extends Authenticatable
         'password',
     ];
 
-    public function groups() {
+    public function groups() { //Sets up the pivot table relationship.
         // return $this->hasMany(User::class);
         return $this->belongsToMany(Group::class)->withPivot('id');
     }

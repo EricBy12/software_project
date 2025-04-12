@@ -9,7 +9,7 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up(): void // this table is unused
     {
         Schema::create('groupsettings', function (Blueprint $table) {
             $table->id();

@@ -47,7 +47,7 @@
                     </x-nav-link>                    
                     
                 </div>
-                <!-- ORGANISERS ONLY -->
+                <!-- organizerS ONLY -->
                 @if(Auth::user()->role === "Organizer")
                 <x-nav-link :href="route('mygroups.index')" :active="request()->routeIs('mygroups.index')"> 
                     <h2 class="dash_h2 manageGroupButton nunito1 decoration-black">Manage My Groups</h2>
@@ -61,7 +61,7 @@
 
      
     <h2 class="dash_h2">Check out local activity</h2>
-    <!-- ORGANISERS ONLY -->
+    <!-- organizerS ONLY -->
     
     <div class="dash_thingy nunito1">
         <!-- <x-nav-link :href="route('events.index')" :active="request()->routeIs('groups.index')">
@@ -79,7 +79,7 @@
         @endforeach
     </div>
 
-    <!-- ORGANISERS ONLY -->
+    <!-- organizerS ONLY -->
     @if(Auth::user()->role === "Organizer")
         <h2 class="dash_h2">Manage My Events</h2>
             

@@ -365,25 +365,26 @@ body{
     justify-content: space-between;
 }
 
-.joinGROUPButton {
+.joinButton {
     background-color: rgb(146, 255, 173);
+    font-size: 20;
+    width: 332;
     padding: 5px;
-    width: 310px;
-    height: 40px;
+    border-radius: 10px;
     text-align: center;
-    line-height: 30px;
-    border-radius: 12px;
+    margin-top: 20px;
     justify-self: center;
+    align-items: center;
+    justify-content: center;
 }
-.leaveGROUPButton {
+.leaveButton {
     background-color: rgb(255, 96, 96);
+    font-size: 20;
+    width: 332;
     padding: 5px;
-    width: 310px;
-    height: 40px;
+    border-radius: 10px;
     text-align: center;
-    line-height: 30px;
-    border-radius: 12px;
-    justify-self: center;
+    margin-top: 20px;
 }
 .manageGROUPButton {
     background-color: rgb(146, 255, 173);

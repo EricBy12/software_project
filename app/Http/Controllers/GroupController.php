@@ -21,7 +21,7 @@ class GroupController extends Controller
         
     }
 
-    public function joinedGroups()
+    public function joinedGroups() // Returns the joined Groups page. (This is now unused)
     {
         
             $groups = Group::all();
@@ -29,7 +29,7 @@ class GroupController extends Controller
         
     }
 
-    public function my_index()
+    public function my_index() // Returns the organizers created groups page.
     {
         {
             $groups = Group::all();
@@ -61,9 +61,9 @@ class GroupController extends Controller
     // Create a new group using the validated data
     $group = Group::create($validated);
 
-    $group->users()->attach(Auth::id());
-    $group->owner()->associate(Auth::user());
-    $group->save();
+    $group->users()->attach(Auth::id()); // connects the user to the group throuygh the pivot table
+    $group->owner()->associate(Auth::user()); // assings user as the owner
+    $group->save(); // saves the group
 
     // Redirect or return a response
     return redirect()->route('mygroups.index');
@@ -77,21 +77,21 @@ class GroupController extends Controller
         return view('groups.show', compact('group'));
     }
 
-    public function joinGroup(Request $request,Group $group)//chat gpt assisted
-{
+    public function joinGroup(Request $request,Group $group)//ChatGPT assisted
+    {
     $request->validate([
         'group_id' => 'required|exists:groups,id',
     ]);
 
     $user = auth()->user();
 
-    $group->increment('members');//chat gpt
-    auth()->user()->increment('joinedGroups');//chat gpt
+    $group->increment('members');//ChatGPT
+    auth()->user()->increment('joinedGroups');//ChatGPT
 
-    // Prevent duplicates using syncWithoutDetaching
+    // Prevent duplicates using syncWithoutDetaching ChatGPT
     $user->groups()->syncWithoutDetaching([$request->group_id]);
     return to_route('groups.index')->with('success', 'You Joined a group!');
-}
+    }
 
     
 
@@ -139,7 +139,7 @@ class GroupController extends Controller
     return to_route('mygroups.index')->with('success', 'Group deleted successfully!');
     }
 
-    public function leaveGroup(Request $request, Group $group)
+    public function leaveGroup(Request $request, Group $group) //lets thge user leave a group.
     {
         $request->validate([
             'group_id' => 'required|exists:groups,id',

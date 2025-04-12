@@ -28,7 +28,7 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/profile/{user}/organizer', [ProfileController::class, 'organizer'])->name('profile.organizer');
 
-    Route::get('/mygroups', [GroupController::class, 'my_index'])->name('mygroups.index'); //Shows the organisers groups
+    Route::get('/mygroups', [GroupController::class, 'my_index'])->name('mygroups.index'); //Shows the organizers groups
 
     Route::get('/groups', [GroupController::class, 'index'])->name('groups.index'); //Uses the index method from the GroupController to display a list of all of the records
     Route::get('/groups/joined', [GroupController::class, 'joinedGroups'])->name('groups.joinedGroups');

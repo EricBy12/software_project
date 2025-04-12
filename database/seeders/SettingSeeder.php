@@ -11,7 +11,7 @@ class SettingSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run(): void // table is unused
     {
         Setting::insert([
             ['user_id' => 1,"hideRealName" => false, "privateStats" => false, "appearOnLeaderboard" => false],

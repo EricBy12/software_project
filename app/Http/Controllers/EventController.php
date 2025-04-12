@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class EventController extends Controller
 {
 
-    public function dashboard() {
+    public function dashboard() { //Unused.
         // $user = Auth::user();
         // $events = Event::all(); // Or filter events related to the user
         // return view('dashboard', compact('events'));
@@ -56,8 +56,8 @@ class EventController extends Controller
     $event = Event::create($validated);
 
     //$event->organizer()->attach(Auth::id());
-    $event->users()->attach(Auth::id());
-    $event->organizer()->associate(Auth::user());
+    $event->users()->attach(Auth::id()); // Associates user in the pivot table.
+    $event->organizer()->associate(Auth::user()); // Organiser is set to the current user.
     $event->save();
 
     // Redirect or return a response
@@ -82,7 +82,7 @@ class EventController extends Controller
         $event->increment('attendees');//chat gpt
     
         // Prevent duplicates using syncWithoutDetaching
-        $user->events()->syncWithoutDetaching([$request->event_id]);
+        $user->events()->syncWithoutDetaching([$request->event_id]); //ChatGPT.
         return to_route('dashboard')->with('success', 'You Joined a event!');
     }
     
@@ -139,8 +139,8 @@ public function leaveEvent(Request $request, Event $event)
             'event_id' => 'required|exists:events,id',
         ]);
         $user = auth()->user();
-        $event->users()->detach($user->id); //chat gpt
-        $event->decrement('attendees');//chat gpt
+        $event->users()->detach($user->id); //ChatGPT. Removes the pivot table entry of the relatinship.
+        $event->decrement('attendees');//ChatGPT. Lowers the event memeber count by one.
         return to_route('dashboard')->with('success', 'You are no longer attending the event');
     }
 }

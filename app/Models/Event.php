@@ -18,9 +18,9 @@ class Event extends Model
     }
 
         // In Group model (App\Models\Group)
-public function organizer() //Chat GPT
-{
-    return $this->belongsTo(User::class, 'organizer_id');  // 'organizer_id' is the foreign key
-}
+    public function organizer() //ChatGPT.
+    {
+        return $this->belongsTo(User::class, 'organizer_id');  // 'organizer_id' is the foreign key
+    }
 
 }

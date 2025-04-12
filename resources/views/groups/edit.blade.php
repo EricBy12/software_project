@@ -5,7 +5,7 @@
         </x-nav-link>
     </div>
     <div>
-        <h3 class="CETitle">Edit an Group</h3>
+        <h3 class="CETitle">Edit a Group</h3>
         <x-group-form 
             :action="route('groups.update', $group)"
             :method="'PUT'" 

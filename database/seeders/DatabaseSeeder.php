@@ -45,6 +45,16 @@ class DatabaseSeeder extends Seeder
             'password' => "123456789"
         ]);
 
+        User::factory()->create([
+            'name' => 'Mr_Doyle',
+            'first_name' => 'Alex',
+            'last_name' => 'Doyle',
+            'email' => 'alexD@gmail.com',
+            'role' => 'Organizer',
+            'joinedGroups' => 0,
+            'password' => "123456789"
+        ]);
+
         $this->call(UserSeeder::class);
         $this->call(GroupSeeder::class);
         $this->call(EventSeeder::class);
