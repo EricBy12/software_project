@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Group extends Model
 {
-    //use HasFactory;
+    use HasFactory;
     
     protected $fillable = ['title','description','location', 'members', 'groupAdmissions', 'privateStats', 'owner_id'];
 

@@ -8,6 +8,8 @@ use App\Models\Event;
 use App\Models\Setting;
 use App\Models\Groupsetting;
 
+use App\Models\GroupFactory;
+
 use Database\Seeders\GroupSeeder;
 use Database\Seeders\EventSeeder;
 use Database\Seeders\SettingSeeder;
@@ -54,6 +56,9 @@ class DatabaseSeeder extends Seeder
             'joinedGroups' => 0,
             'password' => "123456789"
         ]);
+
+        Group::factory(500)->create();
+        Event::factory(500)->create();
 
         $this->call(UserSeeder::class);
         $this->call(GroupSeeder::class);

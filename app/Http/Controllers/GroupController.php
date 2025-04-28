@@ -21,7 +21,7 @@ class GroupController extends Controller
         
     }
 
-    public function joinedGroups() // Returns the joined Groups page. (This is now unused)
+    public function joinedGroups() // Returns the joined Groups page. (This is now unused).
     {
         
             $groups = Group::all();
